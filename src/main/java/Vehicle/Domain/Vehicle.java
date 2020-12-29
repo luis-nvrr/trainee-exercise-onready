@@ -25,6 +25,8 @@ public abstract class Vehicle {
         priceDetails.append(price.showPrice());
         priceDetails.append("|");
         priceDetails.append(model.showDetails());
+        priceDetails.append("|");
+        priceDetails.append(price.showFormattedPrice());
         return priceDetails.toString();
     }
 }

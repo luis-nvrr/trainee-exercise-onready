@@ -10,12 +10,19 @@ import Motorcycle.Domain.MotorcycleRepository;
 import Motorcycle.Infrastructure.InMemoryMotorcycleRepository;
 import Price.Domain.PriceRepository;
 import Price.Infrastructure.InMemoryPriceRepository;
-import Vehicle.Application.ReportBuilder.VehiclesReportManager;
+import Vehicle.Application.VehiclesReportManager;
 import Vehicle.Domain.VehicleRepository;
 import Vehicle.Infrastructure.InMemoryVehiclesRepository;
 
 public class Main {
     public static void main(String[] args) {
+        VehicleRepository vehicleRepository = loadData();
+        VehiclesReportManager reportManager = new VehiclesReportManager(vehicleRepository);
+
+        reportManager.buildVehiclesReport();
+    }
+
+    public static VehicleRepository loadData(){
         BrandRepository brandRepository = new InMemoryBrandRepository();
 
         ModelRepository modelRepository = new InMemoryModelRepository(brandRepository);
@@ -32,8 +39,6 @@ public class Main {
         VehicleRepository vehicleRepository = new InMemoryVehiclesRepository(motorcycleRepository,
                 carRepository);
 
-        VehiclesReportManager reportManager = new VehiclesReportManager(vehicleRepository);
-
-        reportManager.buildVehiclesReport();
+        return vehicleRepository;
     }
 }

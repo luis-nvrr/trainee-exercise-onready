@@ -4,8 +4,13 @@ import java.util.List;
 
 public interface VehiclesReportBuilder {
     void buildReport();
+
     void setVehiclesDetails(List<String> details);
-    void setVehiclesComparisons(List<String> comparisonsResults);
+
+    void setVehiclesComparisons(String mostExpensiveVehicle,
+                                String lessExpensiveVehicle,
+                                String hasYInModelVehicle);
+
     void setPriceSortedList(List<String>  vehiclesOrderedByPrice);
     VehiclesReport getReport();
 

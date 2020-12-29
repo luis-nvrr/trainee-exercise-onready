@@ -18,8 +18,27 @@ public class ConsoleVehiclesReportBuilder implements VehiclesReportBuilder {
     }
 
     @Override
-    public void setVehiclesComparisons(List<String>  comparisonsResults) {
+    public void setVehiclesComparisons(String mostExpensiveVehicle,
+                                       String lessExpensiveVehicle,
+                                       String hasYInModelVehicle) {
 
+        String[] mostExpensiveVehicleDetails = mostExpensiveVehicle.split("\\|");
+        String[] lessExpensiveVehicleDetails = lessExpensiveVehicle.split("\\|");
+        String[] hasYInModelVehicleDetails = hasYInModelVehicle.split("\\|");
+
+        mostExpensiveVehicle = mostExpensiveVehicleDetails[2] + " " +
+                mostExpensiveVehicleDetails[1];
+
+        lessExpensiveVehicle = lessExpensiveVehicleDetails[2] + " " +
+                lessExpensiveVehicleDetails[1];
+
+        hasYInModelVehicle = hasYInModelVehicleDetails[2] + " " +
+                hasYInModelVehicleDetails[1] + " " +
+                hasYInModelVehicleDetails[3];
+
+
+        this.report.setVehiclesComparisons(mostExpensiveVehicle,
+                lessExpensiveVehicle, hasYInModelVehicle);
     }
 
     @Override

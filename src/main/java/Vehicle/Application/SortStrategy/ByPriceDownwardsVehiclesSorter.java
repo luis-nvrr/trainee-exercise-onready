@@ -1,6 +1,6 @@
 package Vehicle.Application.SortStrategy;
 
-import Vehicle.Application.ReportBuilder.VehiclesReportManager;
+import Vehicle.Application.VehiclesReportManager;
 
 import java.util.*;
 

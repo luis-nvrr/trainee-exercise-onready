@@ -10,7 +10,7 @@ public class Price {
         this.price = price;
     }
 
-    private String obtainFormattedPrice(){
+    public String obtainFormattedPrice(){
         DecimalFormat formatter = new DecimalFormat("#,###,###.00");
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
         symbols.setDecimalSeparator(',');
@@ -21,7 +21,7 @@ public class Price {
     }
 
     public String showFormattedPrice(){
-        return "$ " + obtainFormattedPrice();
+        return "$" + obtainFormattedPrice();
     }
 
     public String showPrice(){

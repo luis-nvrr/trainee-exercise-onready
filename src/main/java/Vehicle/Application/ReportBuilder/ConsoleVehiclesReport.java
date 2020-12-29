@@ -20,7 +20,7 @@ public class ConsoleVehiclesReport implements VehiclesReport {
             var brand = detail.split("\\|")[2];
             var characteristic = detail.split("\\|")[3];
 
-            var separator = " //";
+            var separator = " // ";
             report.append(brand).append(separator);
             report.append(model).append(separator);
             report.append(characteristic).append(separator);
@@ -30,11 +30,16 @@ public class ConsoleVehiclesReport implements VehiclesReport {
         report.append("=".repeat(30)).append("\n");
     }
 
-    public void setVehiclesComparisons(List<String> comparisons){
+    public void setVehiclesComparisons(String mostExpensiveVehicle,
+                                       String lessExpensiveVehicle,
+                                       String hasYInModelVehicle){
 
+        report.append("Vehículo más caro: ").append(mostExpensiveVehicle).append("\n");
+        report.append("Vehículo más barato: ").append(lessExpensiveVehicle).append("\n");
+        report.append("Vehículo que contiene en el modelo la letra ‘Y’: ").append(hasYInModelVehicle);
+        report.append("\n");
+        report.append("=".repeat(30)).append("\n");
     }
-
-
 
     public void setVehiclesSortedByPrice(List<String> vehiclesSortedByPrice){
         Iterator<String> it = vehiclesSortedByPrice.iterator();

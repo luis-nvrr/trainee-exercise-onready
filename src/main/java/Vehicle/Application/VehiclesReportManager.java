@@ -1,6 +1,10 @@
-package Vehicle.Application.ReportBuilder;
+package Vehicle.Application;
 
 import Model.Domain.Model;
+import Vehicle.Application.ReportBuilder.ConsoleVehiclesReportBuilder;
+import Vehicle.Application.ReportBuilder.VehiclesReport;
+import Vehicle.Application.ReportBuilder.VehiclesReportBuilder;
+import Vehicle.Application.ReportBuilder.VehiclesReportDirector;
 import Vehicle.Application.SortStrategy.ByPriceDownwardsVehiclesSorter;
 import Vehicle.Application.SortStrategy.VehiclesSortStrategy;
 import Vehicle.Domain.Vehicle;
@@ -19,7 +23,6 @@ public class VehiclesReportManager {
     private String lessExpensiveVehicle;
     private String hasYInModelVehicle;
     private List<String> vehiclesSortedByPrice;
-    private List<String> otrodato2;
 
     public VehiclesReportManager(VehicleRepository vehicleRepository){
        this.vehicles = vehicleRepository.getAllVehicles();
@@ -29,12 +32,14 @@ public class VehiclesReportManager {
         obtainVehiclesDetails();
         obtainVehiclesPricesDetails();
         sortVehiclesByPrice();
+        obtainVehiclesComparisonsResults();
 
         this.builder = new ConsoleVehiclesReportBuilder();
         this.director = new VehiclesReportDirector(builder);
-        director.build(vehiclesDetails, otrodato2, vehiclesSortedByPrice);
+        director.build(vehiclesDetails, mostExpensiveVehicle,
+                lessExpensiveVehicle, hasYInModelVehicle, vehiclesSortedByPrice);
 
-        var report = builder.getReport();
+        VehiclesReport report = builder.getReport();
         report.showReport();
     }
 
@@ -57,6 +62,30 @@ public class VehiclesReportManager {
         for (Map.Entry<Model, ? extends Vehicle> modelEntry : vehicles.entrySet()) {
             vehiclesPricesDetails.add(modelEntry.getValue().showPriceDetails());
         }
+    }
+
+    public void obtainVehiclesComparisonsResults(){
+        findMostExpensiveVehicle();
+        findLessExpensiveVehicle();
+        hasYInModelVehicle = findHasYInModelVehicle();
+    }
+
+    public void findMostExpensiveVehicle(){
+        mostExpensiveVehicle = this.vehiclesPricesDetails.get(0);
+    }
+
+    public void findLessExpensiveVehicle(){
+        lessExpensiveVehicle = this.vehiclesPricesDetails.get(vehiclesPricesDetails.size()-1);
+    }
+
+    public String findHasYInModelVehicle(){
+        for (String vehiclesPricesDetail : vehiclesPricesDetails) {
+            String vehicle = vehiclesPricesDetail.split("\\|")[1];
+            if (vehicle.contains("Y")) {
+                return vehiclesPricesDetail;
+            }
+        }
+        return null;
     }
 
 }
