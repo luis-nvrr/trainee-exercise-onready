@@ -12,11 +12,19 @@ public abstract class Vehicle {
         this.price = price;
     }
 
-    public String showDetails(){
+    public String showFormattedDetails(){
         StringBuilder details = new StringBuilder();
-        details.append("Precio: ").append(price.showPrice());
+        details.append("Precio: ").append(price.showFormattedPrice());
         details.append("|");
-        details.append(model.showDetails());
+        details.append(model.showFormattedDetails());
         return details.toString();
+    }
+
+    public String showPriceDetails(){
+        StringBuilder priceDetails = new StringBuilder();
+        priceDetails.append(price.showPrice());
+        priceDetails.append("|");
+        priceDetails.append(model.showDetails());
+        return priceDetails.toString();
     }
 }

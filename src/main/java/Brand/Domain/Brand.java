@@ -7,8 +7,12 @@ public class Brand {
         this.name = name;
     }
 
-    public String showBrand(){
+    public String showFormattedBrand(){
         return "Marca: " + this.name;
+    }
+
+    public String showBrand(){
+        return this.name;
     }
 
 }

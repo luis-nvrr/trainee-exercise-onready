@@ -2,8 +2,6 @@ package Price.Domain;
 
 import java.text.DecimalFormat;
 import java.text.DecimalFormatSymbols;
-import java.text.NumberFormat;
-import java.util.Locale;
 
 public class Price {
     private double price;
@@ -12,7 +10,7 @@ public class Price {
         this.price = price;
     }
 
-    private String showFormmatedPrice(){
+    private String obtainFormattedPrice(){
         DecimalFormat formatter = new DecimalFormat("#,###,###.00");
         DecimalFormatSymbols symbols = DecimalFormatSymbols.getInstance();
         symbols.setDecimalSeparator(',');
@@ -22,7 +20,11 @@ public class Price {
         return formatter.format(price);
     }
 
+    public String showFormattedPrice(){
+        return "$ " + obtainFormattedPrice();
+    }
+
     public String showPrice(){
-        return "$ " + showFormmatedPrice();
+        return this.price + "";
     }
 }

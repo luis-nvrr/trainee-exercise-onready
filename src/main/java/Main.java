@@ -10,7 +10,7 @@ import Motorcycle.Domain.MotorcycleRepository;
 import Motorcycle.Infrastructure.InMemoryMotorcycleRepository;
 import Price.Domain.PriceRepository;
 import Price.Infrastructure.InMemoryPriceRepository;
-import Vehicle.Application.VehiclesReportManager;
+import Vehicle.Application.ReportBuilder.VehiclesReportManager;
 import Vehicle.Domain.VehicleRepository;
 import Vehicle.Infrastructure.InMemoryVehiclesRepository;
 

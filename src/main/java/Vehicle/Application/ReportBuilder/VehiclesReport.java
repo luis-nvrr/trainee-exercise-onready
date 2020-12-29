@@ -1,4 +1,4 @@
-package Vehicle.Application;
+package Vehicle.Application.ReportBuilder;
 
 public interface VehiclesReport {
 

@@ -13,9 +13,9 @@ public class Motorcycle extends Vehicle {
         this.engineCapacity = engineCapacity;
     }
 
-    public String showDetails(){
+    public String showFormattedDetails(){
         StringBuilder details = new StringBuilder();
-        details.append(super.showDetails());
+        details.append(super.showFormattedDetails());
         details.append("|");
         details.append("Cilindrada: ");
         details.append(engineCapacity.showCapacity());

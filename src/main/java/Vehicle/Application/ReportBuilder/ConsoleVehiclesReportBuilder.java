@@ -1,6 +1,5 @@
-package Vehicle.Application;
+package Vehicle.Application.ReportBuilder;
 
-import Vehicle.Infrastructure.ConsoleVehiclesReport;
 import java.util.List;
 
 public class ConsoleVehiclesReportBuilder implements VehiclesReportBuilder {
@@ -24,8 +23,8 @@ public class ConsoleVehiclesReportBuilder implements VehiclesReportBuilder {
     }
 
     @Override
-    public void setPriceOrderedList(List<String> vehiclesOrderedByPrice) {
-
+    public void setPriceSortedList(List<String> vehiclesSortedByPrice) {
+        this.report.setVehiclesSortedByPrice(vehiclesSortedByPrice);
     }
 
     @Override

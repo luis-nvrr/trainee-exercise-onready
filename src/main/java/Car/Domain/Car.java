@@ -12,9 +12,9 @@ public class Car extends Vehicle {
         this.doors = doors;
     }
 
-    public String showDetails(){
+    public String showFormattedDetails(){
         StringBuilder details = new StringBuilder();
-        details.append(super.showDetails());
+        details.append(super.showFormattedDetails());
         details.append("|");
         details.append("Puertas: ");
         details.append(this.doors);
