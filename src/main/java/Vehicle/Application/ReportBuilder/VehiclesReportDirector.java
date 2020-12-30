@@ -9,11 +9,11 @@ public class VehiclesReportDirector {
         this.builder = builder;
     }
 
-    public void build(List<String> details,
-                      String mostExpensiveVehicle,
-                      String lessExpensiveVehicle,
-                      String hasYInModelVehicle,
-                      List<String> vehiclesSortedByPrice){
+    public void buildReport(List<String> details,
+                            String mostExpensiveVehicle,
+                            String lessExpensiveVehicle,
+                            String hasYInModelVehicle,
+                            List<String> vehiclesSortedByPrice){
         builder.buildReport();
         builder.setVehiclesDetails(details);
         builder.setVehiclesComparisons(mostExpensiveVehicle,

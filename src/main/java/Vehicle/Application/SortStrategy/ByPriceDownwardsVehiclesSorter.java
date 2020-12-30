@@ -7,7 +7,7 @@ import java.util.*;
 public class ByPriceDownwardsVehiclesSorter implements VehiclesSortStrategy{
 
     @Override
-    public List<String> sort(List<String> pricesDetails, VehiclesReportManager manager) {
+    public List<String> sort(List<String> pricesDetails) {
         int i, j, max_idx;
 
         for (i = 1; i < pricesDetails.size(); i++) {

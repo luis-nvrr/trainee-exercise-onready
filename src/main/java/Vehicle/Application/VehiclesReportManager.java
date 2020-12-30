@@ -36,7 +36,7 @@ public class VehiclesReportManager {
 
         this.builder = new ConsoleVehiclesReportBuilder();
         this.director = new VehiclesReportDirector(builder);
-        director.build(vehiclesDetails, mostExpensiveVehicle,
+        director.buildReport(vehiclesDetails, mostExpensiveVehicle,
                 lessExpensiveVehicle, hasYInModelVehicle, vehiclesSortedByPrice);
 
         VehiclesReport report = builder.getReport();
@@ -53,7 +53,7 @@ public class VehiclesReportManager {
 
     public void sortVehiclesByPrice(){
         VehiclesSortStrategy sorter = new ByPriceDownwardsVehiclesSorter();
-        vehiclesSortedByPrice = sorter.sort(vehiclesPricesDetails, this);
+        vehiclesSortedByPrice = sorter.sort(vehiclesPricesDetails);
     }
 
     public void obtainVehiclesPricesDetails(){

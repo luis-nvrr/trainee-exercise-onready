@@ -11,7 +11,8 @@ public interface VehiclesReportBuilder {
                                 String lessExpensiveVehicle,
                                 String hasYInModelVehicle);
 
-    void setPriceSortedList(List<String>  vehiclesOrderedByPrice);
+    void setPriceSortedList(List<String>  vehiclesSortedByPrice);
+
     VehiclesReport getReport();
 
 }
